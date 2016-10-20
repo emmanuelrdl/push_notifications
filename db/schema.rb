@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019155643) do
+ActiveRecord::Schema.define(version: 20161020101323) do
 
   create_table "push_campaigns", force: :cascade do |t|
     t.string   "name",                limit: 255
-    t.string   "message",             limit: 255
+    t.text     "message",             limit: 65535
     t.string   "target_age",          limit: 255
     t.string   "target_gender",       limit: 255
     t.string   "vendor",              limit: 255
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20161019155643) do
     t.datetime "expire_at"
     t.string   "time_to_live",        limit: 255
     t.datetime "delivery_at"
+    t.text     "data",                limit: 65535
   end
 
   create_table "rpush_apps", force: :cascade do |t|
@@ -90,15 +91,19 @@ ActiveRecord::Schema.define(version: 20161019155643) do
   add_index "rpush_notifications", ["delivered", "failed"], name: "index_rpush_notifications_multi", using: :btree
 
   create_table "tokens", force: :cascade do |t|
-    t.integer "push_token", limit: 4
+    t.text    "push_token", limit: 65535
     t.string  "vendor",     limit: 255
     t.integer "user_id",    limit: 4
+    t.string  "language",   limit: 255
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.datetime "birthdate"
+    t.string   "gender",     limit: 255
+    t.string   "language",   limit: 255
   end
 
 end

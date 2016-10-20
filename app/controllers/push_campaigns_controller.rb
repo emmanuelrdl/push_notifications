@@ -5,12 +5,13 @@ class PushCampaignsController < ApplicationController
   end
 
   def new
-    @push_campaign = PushCampaign.new
+    @push_campaign = PushCampaign.new()
   end
 
 
   def create
     @push_campaign = PushCampaign.create(push_campaign_params)
+    redirect_to push_campaigns_path
   end
 
 
@@ -24,7 +25,7 @@ class PushCampaignsController < ApplicationController
 
 
  def push_campaign_params
-   params.require(:push_campaign).permit(:name, :message, :target_age, :target_gender, :vendor, :language, :is_registered, :ios_app_version, :android_app_version, :expiration_date, :time_to_live, :delivery_at )
+   params.require(:push_campaign).permit(:name, :message, :target_age, :target_gender, :vendor, :language, :registered_users, :ios_app_version, :android_app_version, :expire_at, :time_to_live, :delivery_at )
  end
 
 

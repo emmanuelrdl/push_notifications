@@ -1,0 +1,66 @@
+<%= form_for(@push_campaign) do |f| %>
+    <% if @push_campaign.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@push_campaign.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @push_campaign.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :message %><br>
+      <%= f.text_field :message %>
+    </div>
+    <div class="field">
+      <%= f.label :page %><br>
+      <%= f.select :page, PushCampaign::SCREENS_TO_DISPLAY, include_blank: true %>
+    </div>
+    <div class="field">
+      <%= f.label :target_age %><br>
+      <%= f.select :target_age, PushCampaign::TARGET_AGE_GROUPS, include_blank: true  %>
+    </div>
+    <div class="field">
+      <%= f.label :target_gender %><br>
+      <%= f.select :target_gender, PushCampaign::TARGET_GENDERS, include_blank: true  %>
+    </div>
+    <div class="field">
+      <%= f.label :vendor %><br>
+      <%= f.select :vendor,  PushCampaign::VENDORS, include_blank: true %>
+    </div>
+    <div class="field">
+      <%= f.label :language  %><br>
+      <%= f.select :language,  PushCampaign::LANGUAGES %>
+    </div>
+    <div class="field">
+      <%= f.label :registered_users  %><br>
+      <%= f.check_box :registered_users %>
+    </div>
+    <div class="field">
+      <%= f.label :ios_app_version  %><br>
+      <%= f.text_field :ios_app_version %>
+    </div>
+    <div class="field">
+      <%= f.label :android_app_version  %><br>
+      <%= f.text_field :android_app_version %>
+    </div>
+    <div class="field">
+      <%= f.label :expire_at  %><br>
+      <%= f.datetime_select :expire_at %>
+    </div>
+    <div class="field">
+      <%= f.label :delivery_at  %><br>
+      <%= f.datetime_select :delivery_at %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
