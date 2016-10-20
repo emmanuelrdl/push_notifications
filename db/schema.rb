@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020101323) do
+ActiveRecord::Schema.define(version: 20161020154825) do
 
   create_table "push_campaigns", force: :cascade do |t|
     t.string   "name",                limit: 255
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161020101323) do
     t.string   "target_gender",       limit: 255
     t.string   "vendor",              limit: 255
     t.string   "language",            limit: 255
-    t.boolean  "registered_users"
+    t.string   "registered_users",    limit: 255
     t.string   "ios_app_version",     limit: 255
     t.string   "android_app_version", limit: 255
     t.datetime "expire_at"

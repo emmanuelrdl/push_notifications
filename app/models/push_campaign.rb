@@ -13,6 +13,8 @@ class PushCampaign < ActiveRecord::Base
 
   TARGET_GENDERS = ['male', 'female']
 
+  TARGET_USERS = ['registered', 'not_registered']
+
   before_save :set_time_to_live, :set_data
   after_save  :create_notifications
 

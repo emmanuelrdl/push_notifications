@@ -1,15 +1,4 @@
 class ApplePush
-=begin
-  def self.create!(app, device_token, alert, data)
-    notification              = Rpush::Apns::Notification.new
-    notification.app          = app
-    notification.device_token = device_token
-    notification.alert        = alert
-    notification.data         = data
-    notification.save!
-  end
-=end
-
 
   def self.create(token, push_campaign)
     notification = Rpush::Apns::Notification.new

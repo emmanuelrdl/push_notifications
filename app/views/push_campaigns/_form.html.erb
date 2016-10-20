@@ -41,7 +41,7 @@
     </div>
     <div class="field">
       <%= f.label :registered_users  %><br>
-      <%= f.check_box :registered_users %>
+      <%= f.select :registered_users, PushCampaign::TARGET_USERS,  include_blank: true %>
     </div>
     <div class="field">
       <%= f.label :ios_app_version  %><br>
