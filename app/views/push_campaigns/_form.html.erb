@@ -40,8 +40,8 @@
       <%= f.select :language,  PushCampaign::LANGUAGES %>
     </div>
     <div class="field">
-      <%= f.label :registered_users  %><br>
-      <%= f.select :registered_users, PushCampaign::TARGET_USERS,  include_blank: true %>
+      <%= f.label :target_users  %><br>
+      <%= f.select :target_users, PushCampaign::TARGET_USERS,  include_blank: true %>
     </div>
     <div class="field">
       <%= f.label :ios_app_version  %><br>

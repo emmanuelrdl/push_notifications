@@ -10,8 +10,12 @@ class PushCampaignsController < ApplicationController
 
 
   def create
-    @push_campaign = PushCampaign.create(push_campaign_params)
-    redirect_to push_campaigns_path
+    @push_campaign = PushCampaign.new(push_campaign_params)
+    if @push_campaign.save
+      redirect_to push_campaigns_path
+    else
+      render :new
+    end
   end
 
 

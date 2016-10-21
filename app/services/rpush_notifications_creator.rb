@@ -1,9 +1,9 @@
 class RpushNotificationsCreator
-
+  # other action is to send push to one specific user
 
   def self.create_rpush_notifications(push_campaign)
-
-    tokens = Token.filter_gender(push_campaign.target_gender).filter_age(push_campaign.target_age).filter_vendor(push_campaign.vendor).filter_registration(push_campaign.registered_users)
+    tokens = Token.includes(:user).filter_registration(push_campaign.target_users).filter_vendor(push_campaign.vendor).filter_users_gender(push_campaign.target_gender).filter_users_age(push_campaign.target_age)
+    raise
     create_rpush_apple_notifications(tokens, push_campaign)
 
   end
