@@ -14,17 +14,19 @@ class Token < ActiveRecord::Base
   # Check how to move this logic to User controller
 
   scope :filter_users_gender,  -> (value) {
-    where(users: { gender: value }) if value
+    where(users: { gender: value }) if value.present?
   }
 
   scope :filter_vendor, -> (value) {
-    where(vendor: value) if value
+    where(vendor: value) if value.present?
   }
 
   scope :filter_users_age, -> (value) {
-
-    raise
-
+    if value.present?
+      starting_bitrthdate = value.split(",").first.to_date
+      ending_birthdate    = value.split(',').last.to_date
+      where(users: { birthdate: starting_bitrthdate..ending_birthdate})
+   end
   }
 
 
