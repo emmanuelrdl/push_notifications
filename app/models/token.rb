@@ -23,9 +23,10 @@ class Token < ActiveRecord::Base
 
   scope :filter_users_age, -> (value) {
     if value.present?
-      starting_bitrthdate = value.split(",").first.to_date
-      ending_birthdate    = value.split(',').last.to_date
-      where(users: { birthdate: starting_bitrthdate..ending_birthdate})
+      starting_bitrthdate = value.split(",").first.to_datetime
+      ending_birthdate    = value.split(',').last.to_datetime
+      where(users: { birthdate: ending_birthdate..starting_bitrthdate})
+
    end
   }
 
