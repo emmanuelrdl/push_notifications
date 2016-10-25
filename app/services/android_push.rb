@@ -5,7 +5,5 @@ class AndroidPush
     notification.registration_ids = [token]
     notification.data = data
     notification.save!
-
-
   end
 end

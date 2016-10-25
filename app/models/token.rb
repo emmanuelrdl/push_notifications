@@ -29,6 +29,14 @@ class Token < ActiveRecord::Base
    end
   }
 
+  scope :filter_app_version, -> (value) {
+    if value.present?
+      tokens = where(vendor: 'android')
+      raise
+      tokens.reject {|token| token.user.settings["informations"]["app_version"] =! value if token.user.present? && token.user.settings.present?}
+    end
+  }
+
 
 
 end
