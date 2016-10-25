@@ -1,10 +1,11 @@
 class AndroidPush
-  def self.create(token, push_campaign)
-    notification = Rpush::Apns::Notification.new
-    notification.app = Rpush::Apns::App.find_by_name("android")
-    notification.device_token = token
-    notification.alert = push_campaign.message
-    notification.data = push_campaign.data
+  def self.create(token, data)
+    notification = Rpush::Gcm::Notification.new
+    notification.app = Rpush::Gcm::App.find_by_name("android")
+    notification.registration_ids = [token]
+    notification.data = data
     notification.save!
+
+
   end
 end

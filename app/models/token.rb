@@ -26,7 +26,6 @@ class Token < ActiveRecord::Base
       starting_bitrthdate = value.split(",").first.to_datetime
       ending_birthdate    = value.split(',').last.to_datetime
       where(users: { birthdate: ending_birthdate..starting_bitrthdate})
-
    end
   }
 

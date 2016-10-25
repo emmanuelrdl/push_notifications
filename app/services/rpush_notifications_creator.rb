@@ -27,7 +27,7 @@ class RpushNotificationsCreator
 
    def self.create_rpush_android_notifications(tokens, push_campaign)
      tokens.each do |token|
-        AndroidPush.create(token.push_token, push_campaign)
+        AndroidPush.create(token.push_token, {message: push_campaign.message, data: push_campaign.data})
      end
    end
 
