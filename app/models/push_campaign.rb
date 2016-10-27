@@ -5,7 +5,7 @@ class PushCampaign < ActiveRecord::Base
 
   SCREENS_TO_DISPLAY = [['Home', 1], ['Média Audio',2], ['Média Vidéo',3] , [' Média Photos' , 4], ['Settings', 5] , ['Profile', 6], ['Achat bouton', 7] , ['Achat SMS' , 8], ['Achat Appels', 9]]
 
-  TARGET_AGE_GROUPS = [['< 18',       "#{Date.today}, #{Date.today - 17.years}"],
+  AGE_GROUPS = [['< 18',       "#{Date.today}, #{Date.today - 17.years}"],
                        ['>=18 & <26', "#{Date.today - 18.years}, #{Date.today - 25.years}"],
                        ['>=26 & <35', "#{Date.today - 26.years}, #{Date.today - 34.years}"],
                        ['>=35 & <45', "#{Date.today - 35.years}, #{Date.today - 44.years}"],
@@ -15,11 +15,11 @@ class PushCampaign < ActiveRecord::Base
 
   VENDORS = ['ios', 'android']
 
-  LANGUAGES = ['FR']
+  LANGUAGES = ['FR', 'ENG']
 
-  TARGET_GENDERS = ['male', 'female']
+  GENDERS = ['male', 'female']
 
-  TARGET_USERS = ['registered', 'not_registered']
+  REGISTRATION_SATE = ['registered', 'not_registered']
 
   before_validation :format_target_age_group
   before_save :set_time_to_live, :set_data
@@ -35,7 +35,7 @@ class PushCampaign < ActiveRecord::Base
   end
 
   def format_target_age_group
-    self.target_age.split("..") if self.target_age
+    self.target_users_age.split("..") if self.target_users_age
   end
 
 

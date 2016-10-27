@@ -16,32 +16,19 @@
 
 
 
-        <%= f.input :name %>
-
-
         <%= f.input :message %>
-
 
         <%= f.input :page, collection:  PushCampaign::SCREENS_TO_DISPLAY, include_blank: true %>
 
 
-        <%= f.input :target_age, collection: PushCampaign::TARGET_AGE_GROUPS, include_blank: true  %>
-
-
-        <%= f.input :target_gender,collection:  PushCampaign::TARGET_GENDERS, include_blank: true  %>
-
 
         <%= f.input :vendor,  collection: PushCampaign::VENDORS, include_blank: true %>
 
+        <%= f.input :language, collection:  PushCampaign::LANGUAGES, include_blank: false%>
 
-        <%= f.input :language, collection:  PushCampaign::LANGUAGES %>
-
-        <%= f.input :target_users, collection:  PushCampaign::TARGET_USERS,  include_blank: true %>
-
-
-        <%= f.input :ios_app_version %>
-
-        <%= f.input :android_app_version %>
+        <%= f.input :target_registration_state, collection:  PushCampaign::REGISTRATION_SATE,  include_blank: true , input_html: {id:'coucou'} %>
+        <%= f.input :target_users_age, collection: PushCampaign::AGE_GROUPS, include_blank: true  %>
+        <%= f.input :target_users_gender,collection:  PushCampaign::GENDERS, include_blank: true  %>
 
         <%= f.input :expire_at,  as: :datetime %>
 

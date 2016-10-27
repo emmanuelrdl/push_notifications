@@ -11,15 +11,14 @@ class Token < ActiveRecord::Base
     end
   }
 
-  # Check how to move this logic to User controller
+  scope :filter_vendor, -> (value) {
+    where(vendor: value) if value.present?
+  }
 
   scope :filter_users_gender,  -> (value) {
     where(users: { gender: value }) if value.present?
   }
 
-  scope :filter_vendor, -> (value) {
-    where(vendor: value) if value.present?
-  }
 
   scope :filter_users_age, -> (value) {
     if value.present?
@@ -29,13 +28,6 @@ class Token < ActiveRecord::Base
    end
   }
 
-  scope :filter_app_version, -> (value) {
-    if value.present?
-      tokens = where(vendor: 'android')
-      raise
-      tokens.reject {|token| token.user.settings["informations"]["app_version"] =! value if token.user.present? && token.user.settings.present?}
-    end
-  }
 
 
 

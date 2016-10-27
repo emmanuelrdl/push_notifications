@@ -29,7 +29,7 @@ class PushCampaignsController < ApplicationController
 
 
  def push_campaign_params
-   params.require(:push_campaign).permit(:name, :message, :target_age, :target_gender, :vendor, :language, :registered_users, :ios_app_version, :android_app_version, :expire_at, :time_to_live, :delivery_at )
+   params.require(:push_campaign).permit(:name, :message, :target_users_age, :target_users_gender, :vendor, :language, :target_registration_state, :expire_at, :time_to_live, :delivery_at )
  end
 
 

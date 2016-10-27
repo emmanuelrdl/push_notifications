@@ -11,22 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025100846) do
+ActiveRecord::Schema.define(version: 20161027130907) do
 
   create_table "push_campaigns", force: :cascade do |t|
-    t.string   "name",                limit: 255
-    t.text     "message",             limit: 65535
-    t.string   "target_age",          limit: 255
-    t.string   "target_gender",       limit: 255
-    t.string   "vendor",              limit: 255
-    t.string   "language",            limit: 255
-    t.string   "target_users",        limit: 255
-    t.string   "ios_app_version",     limit: 255
-    t.string   "android_app_version", limit: 255
+    t.text     "message",                   limit: 65535
+    t.string   "target_users_age",          limit: 255
+    t.string   "target_users_gender",       limit: 255
+    t.string   "vendor",                    limit: 255
+    t.string   "language",                  limit: 255
+    t.string   "target_registration_state", limit: 255
     t.datetime "expire_at"
-    t.string   "time_to_live",        limit: 255
+    t.string   "time_to_live",              limit: 255
     t.datetime "delivery_at"
-    t.text     "data",                limit: 65535
+    t.text     "data",                      limit: 65535
   end
 
   create_table "rpush_apps", force: :cascade do |t|
