@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    get :push
+    post :send_push
+  end
 
   resources :push_campaigns, only: [:new, :create, :index]
-  resources :push_notifications, only: [:create]
+
 
 
 

@@ -5,9 +5,4 @@ class PushNotificationsController < ApplicationController
 
 
 
-
-
-
-
-
 end

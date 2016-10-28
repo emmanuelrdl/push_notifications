@@ -61,6 +61,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def push
+    @push_notification = PushNotification.new()
+  end
+
+
+  def send_push
+    @user = User.find(params[:user_id])
+    @push_notification =  RpushNotificationsCreator.create_user_notification(@user.tokens.first, params_push_notification["alert"],  params_push_notification["data"])
+    redirect_to user_path(@user)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -71,4 +83,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :settings)
     end
+
+  def params_push_notification
+    params.require(:push_notification).permit(:alert, :data)
+  end
+
+
+
 end

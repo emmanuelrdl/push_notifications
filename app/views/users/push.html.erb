@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="container">
+
+  <%=  simple_form_for @push_notification, :url => user_send_push_path, :method => :post do |f| %>
+      <% if @push_notification.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@push_campaign.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+              <% @push_notification.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+
+      <%= f.input :data %>
+
+      <%= f.input :alert %>
+
+      <%= f.button :submit, class:'btn btn-primary' %>
+
+  <% end %>
+
+</div>

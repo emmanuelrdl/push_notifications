@@ -1,10 +1,10 @@
 class AndroidPush
-  def self.create(token, data, push_campaign)
-    notification = Rpush::Gcm::Notification.new(push_campaign_id: push_campaign.id)
+  def self.create(token, data, delivery_at, id)
+    notification = Rpush::Gcm::Notification.new(push_campaign_id: id)
     notification.app = Rpush::Gcm::App.find_by_name("android")
     notification.registration_ids = [token]
     notification.data = data
     notification.save!
-    notification.deliver_after = push_campaign.delivery_at
+    notification.deliver_after = delivery_at
   end
 end
