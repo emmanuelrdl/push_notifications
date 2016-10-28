@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9a6eed6-2c92-4d21-b6b5-d15485b0b7d7" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/users.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/push_notifications.iml" afterPath="$PROJECT_DIR$/.idea/push_notifications.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/push_campaigns_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/push_campaigns_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/push_notifications_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/push_notifications_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/push_campaign.rb" afterPath="$PROJECT_DIR$/app/models/push_campaign.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/token.rb" afterPath="$PROJECT_DIR$/app/models/token.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/android_push.rb" afterPath="$PROJECT_DIR$/app/services/android_push.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/apple_push.rb" afterPath="$PROJECT_DIR$/app/services/apple_push.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/rpush_notifications_creator.rb" afterPath="$PROJECT_DIR$/app/services/rpush_notifications_creator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/push_campaigns/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/push_campaigns/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/push_campaigns/index.html.erb" afterPath="$PROJECT_DIR$/app/views/push_campaigns/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20161025100846_add_settings_to_users.rb" afterPath="$PROJECT_DIR$/db/migrate/20161025100846_add_settings_to_users.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/rpush.rake" afterPath="$PROJECT_DIR$/lib/tasks/rpush.rake" />
-    </list>
+    <list default="true" id="f9a6eed6-2c92-4d21-b6b5-d15485b0b7d7" name="Default" comment="" />
     <ignored path="push_notifications.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -715,12 +696,12 @@
       <workItem from="1477390145374" duration="4869000" />
       <workItem from="1477402767488" duration="601000" />
       <workItem from="1477408176724" duration="4288000" />
-      <workItem from="1477557633211" duration="11788000" />
+      <workItem from="1477557633211" duration="11967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61305000" />
+    <option name="totallyTimeSpent" value="61484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="215" y="23" width="2111" height="1333" extended-state="0" />
