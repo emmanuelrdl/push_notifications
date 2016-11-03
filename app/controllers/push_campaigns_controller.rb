@@ -12,7 +12,7 @@ class PushCampaignsController < ApplicationController
 
   def create
     @push_campaign = PushCampaign.new(push_campaign_params)
-    @push_campaign.set_message(params[:push_campaign][:eng_message], params[:fr_message][:eng_message])
+    @push_campaign.set_message(push_campaign_params)
     if @push_campaign.save
       redirect_to push_campaigns_path
     else
@@ -31,7 +31,7 @@ class PushCampaignsController < ApplicationController
 
 
  def push_campaign_params
-   params.require(:push_campaign).permit(:name, :message, :target_users_age, :target_users_gender, :vendor, :language, :target_registration_state, :expire_at, :time_to_live, :delivery_at)
+   params.require(:push_campaign).permit(:name, :message, :target_users_age, :target_users_gender, :vendor, :language, :target_registration_state, :expire_at, :time_to_live, :delivery_at, :eng_message, :fr_message)
  end
 
 

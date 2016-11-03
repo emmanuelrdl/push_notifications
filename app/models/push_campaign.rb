@@ -3,6 +3,7 @@ class PushCampaign < ActiveRecord::Base
   attr_accessor :page, :fr_message, :eng_message
 
   serialize :data
+  serialize :message
 
   SCREENS_TO_DISPLAY = [['Home', 1], ['Média Audio',2], ['Média Vidéo',3] , [' Média Photos' , 4], ['Settings', 5] , ['Profile', 6], ['Achat bouton', 7] , ['Achat SMS' , 8], ['Achat Appels', 9]]
 
@@ -44,8 +45,8 @@ class PushCampaign < ActiveRecord::Base
     RpushNotificationsCreator.create_rpush_notifications(self)
   end
 
-  def set_message(eng_message, fr_message)
-    self.message = {eng: eng_message, fr: fr_message}
+  def set_message(params)
+    self.message = {FR: params['eng_message'], ENG: params['fr_message']}
   end
 
 

@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
   def send_push
     @user = User.find(params[:user_id])
-    @push_notification =  RpushNotificationsCreator.create_user_notification(@user.tokens.first, params_push_notification["alert"],  params_push_notification["data"])
+    @push_notification =  RpushNotificationsCreator.create_user_notification(@user.tokens.first,  params_push_notification[:fr_message])
     redirect_to user_path(@user)
   end
 
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
     end
 
   def params_push_notification
-    params.require(:push_notification).permit(:alert, :data)
+    params.require(:push_notification).permit(:fr_message)
   end
 
 
