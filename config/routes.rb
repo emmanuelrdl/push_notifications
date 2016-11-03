@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :push_campaigns, only: [:new, :create, :index]
-
+  resources :messages, only: [:news, :create, :index]
 
 
 

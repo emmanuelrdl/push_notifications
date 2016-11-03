@@ -1,6 +1,7 @@
 class PushCampaign < ActiveRecord::Base
 
-  attr_accessor :page
+  attr_accessor :page, :fr_message, :eng_message
+
   serialize :data
 
   SCREENS_TO_DISPLAY = [['Home', 1], ['Média Audio',2], ['Média Vidéo',3] , [' Média Photos' , 4], ['Settings', 5] , ['Profile', 6], ['Achat bouton', 7] , ['Achat SMS' , 8], ['Achat Appels', 9]]
@@ -15,7 +16,7 @@ class PushCampaign < ActiveRecord::Base
 
   VENDORS = ['ios', 'android']
 
-  LANGUAGES = ['FR', 'ENG']
+  LANGUAGES = ['FR', 'ENG', 'ALL']
 
   GENDERS = ['male', 'female']
 
@@ -41,6 +42,10 @@ class PushCampaign < ActiveRecord::Base
 
   def create_notifications
     RpushNotificationsCreator.create_rpush_notifications(self)
+  end
+
+  def set_message(eng_message, fr_message)
+    self.message = {eng: eng_message, fr: fr_message}
   end
 
 

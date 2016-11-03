@@ -1,6 +1,8 @@
 
 <div class="container">
 
+
+
   <%=  simple_form_for @push_campaign do |f| %>
       <% if @push_campaign.errors.any? %>
           <div id="error_explanation">
@@ -13,10 +15,8 @@
             </ul>
           </div>
       <% end %>
-
-
-
-        <%= f.input :message %>
+        <%= f.input :fr_message, as: :text  %>
+        <%= f.input :eng_message, as: :text %>
         <%= f.input :page, collection:  PushCampaign::SCREENS_TO_DISPLAY, include_blank: true %>
         <%= f.input :vendor,  collection: PushCampaign::VENDORS, include_blank: true %>
         <%= f.input :language, collection:  PushCampaign::LANGUAGES, include_blank: false%>
@@ -27,6 +27,6 @@
         <%= f.input :delivery_at,  as: :datetime %>
         <%= f.button :submit, class:'btn btn-primary' %>
 
-<% end %>
+  <% end %>
 
 </div>
