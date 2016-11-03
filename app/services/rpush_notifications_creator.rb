@@ -9,11 +9,10 @@ class RpushNotificationsCreator
   end
 
   def self.create_user_notification(token, message)
-    raise
     if token.vendor == 'ios'
-      ApplePush.create(token, message[token.user.language.to_sym] , nil, nil, nil, nil)
+      ApplePush.create(token, message , nil, nil, nil, nil)
     elsif token.vendor == 'android'
-      AndroidPush.create(token, { message: message[token.user.language.to_sym], data: data }, nil, nil)
+      AndroidPush.create(token, { message: message, data: data }, nil, nil)
     end
   end
 

@@ -7,7 +7,8 @@ class PushCampaign < ActiveRecord::Base
 
   SCREENS_TO_DISPLAY = [['Home', 1], ['Média Audio',2], ['Média Vidéo',3] , [' Média Photos' , 4], ['Settings', 5] , ['Profile', 6], ['Achat bouton', 7] , ['Achat SMS' , 8], ['Achat Appels', 9]]
 
-  AGE_GROUPS = [['< 18',       "#{Date.today}, #{Date.today - 17.years}"],
+  AGE_GROUPS = [       ['all', 'all'],
+                       ['< 18',       "#{Date.today}, #{Date.today - 17.years}"],
                        ['>=18 & <26', "#{Date.today - 18.years}, #{Date.today - 25.years}"],
                        ['>=26 & <35', "#{Date.today - 26.years}, #{Date.today - 34.years}"],
                        ['>=35 & <45', "#{Date.today - 35.years}, #{Date.today - 44.years}"],
@@ -15,13 +16,13 @@ class PushCampaign < ActiveRecord::Base
                        ['>=55 & <65', "#{Date.today - 55.years}, #{Date.today - 64.years}"],
                        ['>=65',       "#{Date.today - 65.years}, #{Date.today - 100.years}"]]
 
-  VENDORS = ['ios', 'android']
+  VENDORS = ['all','ios', 'android']
 
-  LANGUAGES = ['FR', 'ENG', 'ALL']
+  LANGUAGES = ['all', 'fr', 'eng']
 
-  GENDERS = ['male', 'female']
+  GENDERS = ['all', 'male', 'female']
 
-  REGISTRATION_SATE = ['registered', 'not_registered']
+  REGISTRATION_SATE = ['all','registered', 'not_registered']
 
   before_validation :format_target_age_group
   before_save :set_time_to_live, :set_data
@@ -33,7 +34,7 @@ class PushCampaign < ActiveRecord::Base
   end
 
   def set_data
-    self.data = {screen: self.page}
+    self.data = {screen: self.data}
   end
 
   def format_target_age_group
@@ -46,7 +47,7 @@ class PushCampaign < ActiveRecord::Base
   end
 
   def set_message(params)
-    self.message = {FR: params['eng_message'], ENG: params['fr_message']}
+    self.message = {fr: params['eng_message'], eng: params['fr_message']}
   end
 
 

@@ -1,4 +1,4 @@
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <div class="container">
 
 
@@ -17,12 +17,12 @@
       <% end %>
         <%= f.input :fr_message, as: :text  %>
         <%= f.input :eng_message, as: :text %>
-        <%= f.input :page, collection:  PushCampaign::SCREENS_TO_DISPLAY, include_blank: true %>
-        <%= f.input :vendor,  collection: PushCampaign::VENDORS, include_blank: true %>
+        <%= f.input :data, collection:  PushCampaign::SCREENS_TO_DISPLAY, include_blank: true %>
+        <%= f.input :vendor,  collection: PushCampaign::VENDORS, include_blank: false %>
         <%= f.input :language, collection:  PushCampaign::LANGUAGES, include_blank: false%>
-        <%= f.input :target_registration_state, collection:  PushCampaign::REGISTRATION_SATE,  include_blank: true , input_html: {id:'coucou'} %>
-        <%= f.input :target_users_age, collection: PushCampaign::AGE_GROUPS, include_blank: true  %>
-        <%= f.input :target_users_gender,collection:  PushCampaign::GENDERS, include_blank: true  %>
+        <%= f.input :target_registration_state, collection:  PushCampaign::REGISTRATION_SATE,include_blank: false  %>
+        <%= f.input :target_users_age, collection: PushCampaign::AGE_GROUPS, include_blank: false %>
+        <%= f.input :target_users_gender,collection:  PushCampaign::GENDERS, include_blank: false %>
         <%= f.input :expire_at,  as: :datetime %>
         <%= f.input :delivery_at,  as: :datetime %>
         <%= f.button :submit, class:'btn btn-primary' %>
@@ -30,3 +30,17 @@
   <% end %>
 
 </div>
+
+<script>
+  $("#new_push_campaign").submit(function() {
+   if ( $(this).find('select[name="push_campaign[vendor]"]').val() == 'all'
+        &&  $(this).find('select[name="push_campaign[language]"]').val() == 'all'
+        && $(this).find('select[name="push_campaign[target_registration_state]"]').val() == 'all'
+        && $(this).find('select[name="push_campaign[target_users_age]"]').val() == 'all'
+        && $(this).find('select[name="push_campaign[target_users_gender]"]').val() == 'all'
+        ) {
+           input = confirm("Attention, votre push sera envoyé à l'intégralité des utilisateurs, voulez-vous continuer ? -> Ok : Envoyer le push, Annuler: Rester sur la page");
+           return input;
+          }
+  });
+</script>
