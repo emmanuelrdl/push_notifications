@@ -19,14 +19,14 @@ class RpushNotificationsCreator
 
   def self.create_rpush_apple_notifications(tokens,  push_campaign)
     tokens.each do |token|
-      ApplePush.create(token, push_campaign.message[token.user.language.to_sym], push_campaign.data, push_campaign.delivery_at, push_campaign.expire_at, push_campaign.id)
+      ApplePush.create(token, push_campaign.message[token.user.language.to_sym], push_campaign.data, push_campaign.delivery_at, push_campaign.expire_at, push_campaign)
     end
   end
 
 
    def self.create_rpush_android_notifications(tokens, push_campaign)
      tokens.each do |token|
-        AndroidPush.create(token, { message: push_campaign.message[token.user.language.to_sym] , data:  push_campaign.data }, push_campaign.delivery_at, push_campaign.id)
+        AndroidPush.create(token, { message: push_campaign.message[token.user.language.to_sym] , data:  push_campaign.data }, push_campaign.delivery_at, push_campaign)
      end
    end
 

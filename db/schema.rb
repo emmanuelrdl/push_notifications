@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102153656) do
+ActiveRecord::Schema.define(version: 20161104141322) do
 
   create_table "push_campaigns", force: :cascade do |t|
     t.text     "message",                   limit: 65535
