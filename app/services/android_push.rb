@@ -7,7 +7,6 @@ class AndroidPush
     notification.deliver_after = delivery_at
     notification.expiry = (push_campaign.expire_at - Time.now > 0) ? (push_campaign.expire_at - Time.now) : 0
     notification.save!
-
   end
 end
 

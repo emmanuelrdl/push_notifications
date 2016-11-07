@@ -5,10 +5,7 @@ class ApplePush
     notification.app = Rpush::Apns::App.find_by_name("ios")
     notification.device_token = token.push_token
     notification.alert = message
-    notification.fail_after = DateTime.now + 10.hours
-=begin
-    notification.priority = 1
-=end
+    notification.expiry = expire_at.to_i
     notification.data = {screen: data}
     notification.deliver_after = delivery_at
     notification.save!
